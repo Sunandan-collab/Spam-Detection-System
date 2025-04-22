@@ -16,7 +16,7 @@ A modern web application that uses a Naive Bayes classifier to detect spam email
 Spam-Detection-System/
 ├── app.py                  # Flask application
 ├── model.py                # Spam detection model
-├── Email_test.csv          # Training dataset
+├── emails.csv          # Training dataset
 ├── static/
 │   ├── css/
 │   │   └── style.css       # Styling
