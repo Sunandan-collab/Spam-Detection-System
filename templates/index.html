@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="highlight">Spam</span> Detection System</h1>
+            <p class="subtitle">Powered by Naive Bayes Machine Learning</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Analyze Text</h2>
+                <div class="text-input-container">
+                    <textarea id="email-content" placeholder="Paste email or message content here to analyze..."></textarea>
+                    <div class="button-container">
+                        <button id="analyze-btn" class="primary-btn">Analyze</button>
+                        <button id="clear-btn" class="secondary-btn">Clear</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-section" id="results-container">
+                <h2>Analysis Results</h2>
+                <div class="results-content hidden" id="results-content">
+                    <div class="result-card">
+                        <div class="classification-result">
+                            <div class="result-icon">
+                                <div id="spam-icon" class="icon icon-spam hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                                <div id="ham-icon" class="icon icon-ham hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="result-text">
+                                <h3 id="result-heading">Result</h3>
+                                <p id="result-explanation">The analysis will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="probability-section">
+                        <h3>Probability Analysis</h3>
+                        <div class="chart-container">
+                            <canvas id="probability-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="loading hidden" id="loading">
+                    <div class="spinner"></div>
+                    <p>Analyzing text...</p>
+                </div>
+                
+                <div class="no-results" id="no-results">
+                    <p>Enter email text and click "Analyze" to see the results.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h2>About This System</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Naive Bayes Classifier</h3>
+                    <p>This system uses a Multinomial Naive Bayes algorithm, which is particularly effective for text classification tasks like spam detection.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Text Processing</h3>
+                    <p>Emails are preprocessed through tokenization, stemming, and removal of stop words before being vectorized for the model.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Accuracy</h3>
+                    <p>Our model is trained on a curated dataset of spam and legitimate emails to achieve high accuracy in classification.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Spam Detection System &copy; 2025 | Powered by Machine Learning</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
